@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:orientation="vertical"
+    tools:context=".ui.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_qr"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="@dimen/basic_margin"
+            android:src="@drawable/ic_qr"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ll_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextMid"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="@dimen/basic_margin"
+            android:gravity="center"
+            android:text="@string/na_nme"
+            android:textColor="@color/picker_text_off"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ll_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_search"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:background="@drawable/search_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_sub"
+            app:layout_constraintStart_toEndOf="@+id/iv_qr"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/half_basic_margin"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_search"
+                style="@style/TextAcc"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="@dimen/half_basic_margin"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/search"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textColor="@color/gray_900"
+                android:textColorHint="@color/gray_400"
+                android:textCursorDrawable="@drawable/color_cursor_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pb"
+                app:layout_constraintStart_toEndOf="@id/iv_search"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:visibility="gone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/half_basic_margin"
+                android:indeterminateTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_ticker"
+            style="@style/TextMid"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="@dimen/basic_margin"
+            android:gravity="center"
+            android:text="@string/tic_nker"
+            android:textColor="@color/picker_text_on"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ll_search"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_sub"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="@dimen/basic_margin"
+            android:src="@drawable/ic_ring"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ll_search"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_header"
+        style="@style/TextHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/basic_margin"
+        android:gravity="start|center_vertical"
+        android:text="@string/bookmarks"
+        app:layout_constraintBottom_toTopOf="@id/rv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/picker_circle"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="@dimen/half_basic_margin"
+            android:background="@drawable/picker_background"
+            android:elevation="@dimen/cl_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/picker_1"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginVertical="@dimen/half_basic_margin"
+            android:layout_marginStart="@dimen/half_basic_margin"
+            android:elevation="@dimen/cl_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/picker_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/picker_text_1"
+                style="@style/TextHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="$"
+                android:textColor="@color/picker_text_on"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/picker_2"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginVertical="@dimen/half_basic_margin"
+            android:layout_marginEnd="@dimen/basic_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/picker_1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/picker_text_2"
+                style="@style/TextHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="₽"
+                android:textColor="@color/picker_text_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_picker" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/basic_margin"
+        android:backgroundTint="@color/purple_300"
+        android:src="@drawable/ic_refresh"
+        android:visibility="visible"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/card_elevation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
